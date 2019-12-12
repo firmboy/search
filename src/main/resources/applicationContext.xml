@@ -20,7 +20,7 @@
 
 	<bean id="applicationContext" class="org.apache.axis2.extensions.spring.receivers.ApplicationContextHolder" />
 
-    <bean id="helloCxfServer" class="com.firmboy.webservice.cxf.server.HelloCxfServerImpl"></bean>
+    <bean id="helloCxfServer" class="com.firmboy.search.webservice.cxf.server.HelloCxfServerImpl"></bean>
     <jaxws:endpoint id="helloCxf" implementor="#helloCxfServer" address="/helloCxf" />
 
 

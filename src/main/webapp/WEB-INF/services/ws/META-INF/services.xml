@@ -3,7 +3,7 @@
     <service name="helloAxis2" targetNamespace="http://server.axis2.webservice.java.firmboy.com" scope="application">
         <schema schemaNamespace="http://server.axis2.webservice.java.firmboy.com"/>
         <parameter name="load-on-startup">true</parameter>
-        <parameter name="ServiceClass" >com.firmboy.webservice.axis2.server.HelloAxis2Server</parameter>
+        <parameter name="ServiceClass" >com.firmboy.search.webservice.axis2.server.HelloAxis2Server</parameter>
         <messageReceivers>
             <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
                              class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
