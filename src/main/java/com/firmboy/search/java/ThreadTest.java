@@ -66,4 +66,8 @@ public class ThreadTest {
         }
         executorService.shutdown();
     }
+
+    public static void thread() {
+
+    }
 }
