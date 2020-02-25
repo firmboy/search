@@ -38,9 +38,9 @@ public class HutoolTest {
     private static final Log log = LogFactory.get();
 
     public static void main(String[] args) throws Exception{
-        setting();
+        //setting();
         //classPath();
-        //date();
+        date();
         //io();
     }
 
@@ -93,6 +93,15 @@ public class HutoolTest {
 
         DateTime parse = DateUtil.parse("2019/10/21");
         Console.log(parse);
+        long l = DateUtil.current(false);
+        Console.log(l);
+        long l1 = DateUtil.current(true);
+        Console.log(l1);
+
+        
+
+        String format = DatePattern.PURE_TIME_FORMAT.format(DateUtil.date());
+        Console.log(format);
     }
 
     public static void time() {
