@@ -1,10 +1,10 @@
 package com.firmboy.search.asm.clazz;
 
 import org.objectweb.asm.*;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.MethodNode;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 /**
  * @author playboy
@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 public class DemoClazz {
 
     public static void main(String[] args) throws Exception {
-        test1();
+        test();
     }
 
     public static void test() throws Exception{
@@ -39,21 +39,29 @@ public class DemoClazz {
         };
         //忽略调试信息
         classReader.accept(classVisitor, ClassReader.SKIP_DEBUG);
+
+        byte[] bytes = cw.toByteArray();
+        File file = new File("/Users/playboy/dev/code/czsb/search/src/main/java/com/firmboy/search/asm/clazz/ByteCodeDemo.class");
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        fileOutputStream.write(bytes);
+        fileInputStream.close();
+
+
     }
 
     public static void test1() throws Exception {
-        FileInputStream fileInputStream = new FileInputStream("/Users/playboy/dev/code/czsb/search/target/classes/com/firmboy/search/asm/clazz/ByteCodeDemo.class");
-        ClassReader classReader = new ClassReader(fileInputStream);
-        ClassWriter cw = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS);
-        //忽略调试信息
-        ClassNode classNode = new ClassNode(org.objectweb.asm.Opcodes.ASM5);
-
-        classReader.accept(classNode, ClassReader.SKIP_DEBUG);
-        for (Object obj:classNode.methods) {
-            MethodNode methodNode = (MethodNode)obj;
-            System.out.println(methodNode.name);
-        }
-        classNode.accept(cw);
+//        //FileInputStream fileInputStream = new FileInputStream("/Users/playboy/dev/code/czsb/search/target/classes/com/firmboy/search/asm/clazz/ByteCodeDemo.class");
+//        ClassReader classReader = new ClassReader(fileInputStream);
+//        ClassWriter cw = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS);
+//        //忽略调试信息
+//        ClassNode classNode = new ClassNode(org.objectweb.asm.Opcodes.ASM5);
+//
+//        classReader.accept(classNode, ClassReader.SKIP_DEBUG);
+//        for (Object obj:classNode.methods) {
+//            MethodNode methodNode = (MethodNode)obj;
+//            System.out.println(methodNode.name);
+//        }
+//        classNode.accept(cw);
     }
 
 
