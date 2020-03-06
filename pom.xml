@@ -6,7 +6,7 @@
 
     <groupId>com.firmboy</groupId>
     <artifactId>com.firmboy.search</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <name>com.firmboy.search Maven Webapp</name>
